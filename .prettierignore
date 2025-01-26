@@ -1,0 +1,7 @@
+node_modules
+_build
+deps
+.elixir_ls
+.git
+*.beam
+*.ez
