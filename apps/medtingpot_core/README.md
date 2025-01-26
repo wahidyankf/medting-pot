@@ -6,9 +6,12 @@ aggregation, processing, and distribution through a REST API interface.
 ## Features
 
 - REST API for content management
+- Phoenix LiveView for real-time UI updates
 - SQLite database for data persistence
 - Event-driven architecture
 - JSON-based communication
+- Telemetry integration for metrics and monitoring
+- Comprehensive test coverage (>90%)
 
 ## Installation
 
@@ -32,6 +35,7 @@ The server will be available at [`localhost:4000`](http://localhost:4000).
 
 ### Available Endpoints
 
+- `GET /` - LiveView-powered home page
 - `GET /api/hello` - Test endpoint that returns a welcome message
 - More endpoints coming soon...
 
@@ -41,102 +45,66 @@ The server will be available at [`localhost:4000`](http://localhost:4000).
 
 ```bash
 # Run tests in test environment
-MIX_ENV=test mix test
+mix test
 
 # Run tests with coverage report
-MIX_ENV=test mix test --cover
+mix coveralls
+
+# Run tests with detailed coverage report
+mix coveralls.html
 
 # Run tests for specific files
-MIX_ENV=test mix test test/path/to/test.exs
+mix test test/path/to/test.exs
 ```
 
 ### Code Quality
 
-The project enforces code quality through various tools and checks:
+The project maintains high code quality standards:
 
-#### Automatic Formatting
+- Minimum test coverage: 80%
+- Current test coverage: >90%
+- Pre-push hooks enforce test coverage requirements
+- Automated testing for:
+  - API endpoints
+  - LiveView components
+  - Error handling
+  - Telemetry metrics
 
-Elixir code is automatically formatted using `mix format` before each commit. The formatter
-configuration is in `.formatter.exs` and follows Phoenix and Ecto conventions.
+### Telemetry Metrics
 
-To manually format code:
+The application includes comprehensive telemetry metrics:
 
-```bash
-# Format a specific file
-mix format lib/path/to/file.ex
+- Phoenix metrics:
+  - Endpoint timing
+  - Router dispatch duration
+  - Socket and channel metrics
+- VM metrics:
+  - Memory usage
+  - Run queue lengths
+  - CPU and IO metrics
 
-# Format all files
-mix format
-```
-
-#### Compilation Warnings
-
-Compilation warnings are treated as errors in both development and test environments. This helps
-catch potential issues early:
-
-```bash
-# Compile with warnings as errors
-mix compile --warnings-as-errors
-```
-
-#### Testing Environment
-
-Tests are automatically run in the test environment (`MIX_ENV=test`) to ensure proper isolation and
-consistent results.
-
-### Project Structure
+### Directory Structure
 
 ```
 lib/
 ├── medtingpot_core/
-│   ├── application.ex     # Application supervisor and configuration
-│   ├── repo.ex           # Database repository
-│   ├── router.ex         # API routes definition
-│   ├── endpoint.ex       # HTTP endpoint configuration
-│   ├── telemetry.ex      # Metrics and monitoring
-│   └── controllers/      # API controllers
-│       └── hello_controller.ex
-test/                     # Test files
-config/                   # Environment configuration
-  ├── config.exs          # Shared configuration
-  ├── dev.exs            # Development configuration
-  └── test.exs           # Test configuration
-```
-
-## Configuration
-
-The application can be configured through environment variables or config files:
-
-### Database
-
-SQLite database configuration in `config/dev.exs`:
-
-```elixir
-config :medtingpot_core, MedtingpotCore.Repo,
-  database: Path.expand("../medtingpot_core_dev.db", Path.dirname(__ENV__.file))
-```
-
-### Server
-
-Server configuration in `config/dev.exs`:
-
-```elixir
-config :medtingpot_core, MedtingpotCore.Endpoint,
-  http: [ip: {127, 0, 0, 1}, port: 4000],
-  check_origin: false,
-  code_reloader: true,
-  debug_errors: true
+│   ├── controllers/     # API controllers
+│   ├── live/           # LiveView modules
+│   ├── components/     # Reusable UI components
+│   └── telemetry.ex    # Telemetry configuration
+test/
+├── medtingpot_core/    # Test files
+└── support/            # Test helpers and utilities
 ```
 
 ## Contributing
 
-Please refer to the main repository's CONTRIBUTING.md file for guidelines. Make sure to:
-
-1. Run tests before submitting changes
-2. Follow the code formatting guidelines
-3. Write clear commit messages using conventional commits
-4. Add tests for new functionality
+1. Fork the repository
+2. Create your feature branch
+3. Write tests for your changes
+4. Ensure test coverage remains above 80%
+5. Create a pull request
 
 ## License
 
-This project is part of MedtingPot. Please refer to the main repository's LICENSE file.
+This project is licensed under the MIT License - see the LICENSE file for details.

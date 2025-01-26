@@ -20,10 +20,14 @@ apps/
 
 ### Core Application (medtingpot_core)
 
+The core application provides:
+
 - REST API for content management
+- Phoenix LiveView for real-time UI updates
 - SQLite database for data persistence
-- Event-driven architecture using Phoenix
-- JSON-based communication
+- Event-driven architecture
+- Telemetry integration for metrics
+- Comprehensive test coverage (>90%)
 
 ## Technology Stack
 
@@ -43,6 +47,7 @@ apps/
   - Built-in WebSocket support
   - High-performance HTTP server
   - API endpoints for content distribution
+  - Telemetry for metrics and monitoring
 
 - **SQLite**: Lightweight and reliable database system for:
   - Content storage and management
@@ -50,196 +55,76 @@ apps/
   - Relationship mapping between different content sources
   - Efficient querying and data retrieval
 
-The choice of Elixir with Phoenix Framework ensures robust performance in our event-heavy
-architecture, making it ideal for processing and distributing content from multiple sources
-simultaneously. Phoenix's real-time capabilities perfectly complement the event-driven nature of the
-application, while SQLite provides a solid foundation for data persistence and complex querying
-capabilities.
+## Development
 
-## Code Quality
+### Code Quality
 
-The project maintains high code quality standards through automated tools and checks:
+We maintain high code quality standards through:
 
-### Pre-commit Hooks
+- **Testing**:
 
-All commits are automatically checked and formatted using:
+  - Minimum test coverage requirement: 80%
+  - Current test coverage: >90%
+  - Comprehensive test suites for all components
+  - Pre-push hooks to enforce coverage requirements
 
-- **Prettier**: Formats JavaScript, JSON, Markdown, and Shell scripts
-- **mix format**: Formats Elixir code according to community standards
-- **Conventional Commits**: Enforces standardized commit messages
+- **Automation**:
 
-### Pre-push Hooks
+  - Automated code formatting
+  - Git hooks for code quality checks
+  - Continuous integration pipelines
 
-Before pushing to the repository, the following checks are run:
-
-- **Elixir Tests**: All tests must pass
-- **Compilation Warnings**: Treated as errors
-- **Mix Environment**: Tests run in the correct environment
-
-### Code Formatting
-
-The project uses several tools to maintain consistent code style:
-
-```bash
-# Format all files
-npm run format
-
-# Run tests
-npm run test
-```
-
-Formatting is automatically applied before each commit for:
-
-- JavaScript (\*.js)
-- JSON (\*.json)
-- Markdown (\*.md)
-- Shell Scripts (\*.sh)
-- Elixir Files (_.ex, _.exs)
-
-### Commit Messages
-
-We use conventional commits to standardize commit messages. Instead of `git commit`, use:
-
-```bash
-npm run commit
-```
-
-This will prompt you for:
-
-- Type of change (feat, fix, docs, etc.)
-- Scope of change
-- Description
-- Breaking changes
-- Issues affected
-
-## Repository Management
-
-This repository is managed using:
-
-- **npm/JavaScript**: Tools and scripts for repository maintenance:
-  - Automated release management
-  - Commit message standardization
-  - Repository workflow automation
-  - Development process tooling
-  - Version control helpers
-
-## Development Setup
-
-### Prerequisites
-
-- Elixir
-- Phoenix Framework
-- Node.js & npm (for repository management)
+- **Monitoring**:
+  - Telemetry integration for metrics
+  - Performance monitoring
+  - Error tracking
 
 ### Getting Started
 
-1. Install dependencies:
+1. Clone the repository:
 
    ```bash
-   # Install repository management tools
-   npm install
-   
-   # Install Elixir dependencies (in each app directory)
-   cd apps/medtingpot_core
-   mix deps.get
+   git clone https://github.com/yourusername/medting-pot.git
+   cd medting-pot
    ```
 
-2. Set up the database:
+2. Set up the core application:
 
    ```bash
    cd apps/medtingpot_core
+   mix deps.get
    mix ecto.setup
    ```
 
-3. Start the Phoenix server:
+3. Start the server:
 
    ```bash
-   cd apps/medtingpot_core
    mix phx.server
    ```
 
-The API will be available at `http://localhost:4000/api`
+4. Visit [`localhost:4000`](http://localhost:4000) to see the application.
 
-### Repository Management
+## Current Features
 
-This repository uses several tools to maintain code quality and consistency:
+- **Content Management**:
 
-#### Commit Messages
+  - Basic API endpoints
+  - LiveView-powered UI
+  - JSON response format
 
-We use conventional commits to standardize commit messages. Instead of `git commit`, use:
-
-```bash
-npm run commit
-```
-
-This will prompt you for:
-
-- Type of change (feat, fix, docs, etc.)
-- Scope of change
-- Description
-- Breaking changes
-- Issues affected
-
-#### Code Formatting
-
-JavaScript and Markdown files are automatically formatted using Prettier before each commit. To
-manually format files:
-
-```bash
-npm run format
-```
-
-#### Versioning
-
-For release management:
-
-```bash
-npm run release
-```
-
-This will:
-
-- Update version numbers
-- Generate CHANGELOG.md
-- Create a git tag
-
-## Features
-
-### Current Implementation
-
-- **Notion Integration**: Primary data source for content aggregation
-- **Content Processing**: Transform Notion content into a standardized format
-- **Distribution Pipeline**: Prepare content for multi-channel distribution
-
-### Future Plans
-
-- Integration with additional content sources
-- Enhanced content blending capabilities
-- Support for more distribution channels:
-  - Blog platforms
-  - Social media
-  - And more...
-
-## Purpose
-
-The main goal of MedtingPot is to simplify content management and distribution by:
-
-1. Eliminating the need to manually gather content from multiple sources
-2. Providing a single point of control for content distribution
-3. Ensuring consistency across different publishing channels
-
-## Getting Started
-
-[Coming soon]
+- **Monitoring**:
+  - Phoenix metrics
+  - VM metrics
+  - Performance tracking
 
 ## Contributing
 
-[Coming soon]
+1. Fork the repository
+2. Create your feature branch
+3. Write tests for your changes
+4. Ensure test coverage remains above 80%
+5. Create a pull request
 
 ## License
 
-[Coming soon]
-
----
-
-_MedtingPot - Where Content Sources Blend Together_
+This project is licensed under the MIT License - see the LICENSE file for details.
