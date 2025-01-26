@@ -1,5 +1,7 @@
 # MedtingPot
 
+[![Test](https://github.com/wahidyankf/medting-pot/actions/workflows/test.yml/badge.svg)](https://github.com/wahidyankf/medting-pot/actions/workflows/test.yml)
+
 A content aggregation and distribution platform that acts as a digital melting pot for various
 content sources.
 
