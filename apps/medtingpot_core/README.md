@@ -40,16 +40,49 @@ The server will be available at [`localhost:4000`](http://localhost:4000).
 ### Running Tests
 
 ```bash
-mix test
+# Run tests in test environment
+MIX_ENV=test mix test
+
+# Run tests with coverage report
+MIX_ENV=test mix test --cover
+
+# Run tests for specific files
+MIX_ENV=test mix test test/path/to/test.exs
 ```
 
 ### Code Quality
 
-The project uses various tools to maintain code quality:
+The project enforces code quality through various tools and checks:
 
-- ExUnit for testing
-- Credo for static code analysis (coming soon)
-- Dialyzer for type checking (coming soon)
+#### Automatic Formatting
+
+Elixir code is automatically formatted using `mix format` before each commit. The formatter
+configuration is in `.formatter.exs` and follows Phoenix and Ecto conventions.
+
+To manually format code:
+
+```bash
+# Format a specific file
+mix format lib/path/to/file.ex
+
+# Format all files
+mix format
+```
+
+#### Compilation Warnings
+
+Compilation warnings are treated as errors in both development and test environments. This helps
+catch potential issues early:
+
+```bash
+# Compile with warnings as errors
+mix compile --warnings-as-errors
+```
+
+#### Testing Environment
+
+Tests are automatically run in the test environment (`MIX_ENV=test`) to ensure proper isolation and
+consistent results.
 
 ### Project Structure
 
@@ -97,7 +130,12 @@ config :medtingpot_core, MedtingpotCore.Endpoint,
 
 ## Contributing
 
-Please refer to the main repository's CONTRIBUTING.md file for guidelines.
+Please refer to the main repository's CONTRIBUTING.md file for guidelines. Make sure to:
+
+1. Run tests before submitting changes
+2. Follow the code formatting guidelines
+3. Write clear commit messages using conventional commits
+4. Add tests for new functionality
 
 ## License
 

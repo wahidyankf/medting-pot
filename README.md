@@ -56,6 +56,62 @@ simultaneously. Phoenix's real-time capabilities perfectly complement the event-
 application, while SQLite provides a solid foundation for data persistence and complex querying
 capabilities.
 
+## Code Quality
+
+The project maintains high code quality standards through automated tools and checks:
+
+### Pre-commit Hooks
+
+All commits are automatically checked and formatted using:
+
+- **Prettier**: Formats JavaScript, JSON, Markdown, and Shell scripts
+- **mix format**: Formats Elixir code according to community standards
+- **Conventional Commits**: Enforces standardized commit messages
+
+### Pre-push Hooks
+
+Before pushing to the repository, the following checks are run:
+
+- **Elixir Tests**: All tests must pass
+- **Compilation Warnings**: Treated as errors
+- **Mix Environment**: Tests run in the correct environment
+
+### Code Formatting
+
+The project uses several tools to maintain consistent code style:
+
+```bash
+# Format all files
+npm run format
+
+# Run tests
+npm run test
+```
+
+Formatting is automatically applied before each commit for:
+
+- JavaScript (\*.js)
+- JSON (\*.json)
+- Markdown (\*.md)
+- Shell Scripts (\*.sh)
+- Elixir Files (_.ex, _.exs)
+
+### Commit Messages
+
+We use conventional commits to standardize commit messages. Instead of `git commit`, use:
+
+```bash
+npm run commit
+```
+
+This will prompt you for:
+
+- Type of change (feat, fix, docs, etc.)
+- Scope of change
+- Description
+- Breaking changes
+- Issues affected
+
 ## Repository Management
 
 This repository is managed using:
@@ -82,7 +138,7 @@ This repository is managed using:
    ```bash
    # Install repository management tools
    npm install
-
+   
    # Install Elixir dependencies (in each app directory)
    cd apps/medtingpot_core
    mix deps.get
