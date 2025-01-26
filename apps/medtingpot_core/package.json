@@ -1,0 +1,11 @@
+{
+  "name": "medtingpot_core",
+  "version": "1.0.0",
+  "description": "Medtingpot Core Application",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^8.0.0"
+  }
+}
