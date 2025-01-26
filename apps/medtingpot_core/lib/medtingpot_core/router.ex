@@ -26,6 +26,6 @@ defmodule MedtingpotCore.Router do
   scope "/api", MedtingpotCore do
     pipe_through :api
 
-    get "/hello", HelloController, :hello
+    match :*, "/hello", HelloController, :hello
   end
 end
