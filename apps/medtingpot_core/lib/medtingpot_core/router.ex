@@ -1,5 +1,5 @@
 defmodule MedtingpotCore.Router do
-  use Phoenix.Router
+  use Phoenix.Router, helpers: true
   import Plug.Conn
   import Phoenix.Controller
   import Phoenix.LiveView.Router
