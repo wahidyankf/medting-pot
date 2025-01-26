@@ -1,10 +1,13 @@
 #!/bin/bash
 
+# Exit on any error
+set -e
+
 # Function to check if a file should be formatted by Prettier
 should_format_with_prettier() {
   local file="$1"
   case "$file" in
-    *.md|*.json|*.js|*.jsx|*.ts|*.tsx|*.yml|*.yaml)
+    *.md | *.json | *.js | *.jsx | *.ts | *.tsx | *.yml | *.yaml | *.sh)
       return 0
       ;;
     *)
@@ -17,7 +20,7 @@ should_format_with_prettier() {
 should_format_with_mix() {
   local file="$1"
   case "$file" in
-    *.ex|*.exs)
+    *.ex | *.exs)
       return 0
       ;;
     *)
@@ -40,7 +43,7 @@ done
 
 # Format with Prettier if there are matching files
 if [ ${#prettier_files[@]} -ne 0 ]; then
-  npx prettier --write "${prettier_files[@]}" 2>/dev/null || true
+  npx prettier --write "${prettier_files[@]}" 2> /dev/null || true
 fi
 
 # Format Elixir files if there are any

@@ -1,9 +1,26 @@
 {
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
   "semi": true,
   "singleQuote": true,
-  "tabWidth": 2,
-  "printWidth": 100,
   "trailingComma": "es5",
+  "bracketSpacing": true,
   "arrowParens": "avoid",
-  "proseWrap": "always"
+  "proseWrap": "always",
+  "endOfLine": "lf",
+  "plugins": ["prettier-plugin-sh"],
+  "overrides": [
+    {
+      "files": "*.sh",
+      "options": {
+        "indent": 2,
+        "binaryNextLine": true,
+        "switchCaseIndent": true,
+        "spaceRedirects": true,
+        "keepComments": true,
+        "functionNextLine": false
+      }
+    }
+  ]
 }
