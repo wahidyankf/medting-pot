@@ -7,7 +7,7 @@
     "prepare": "husky install",
     "commit": "cz",
     "release": "standard-version",
-    "format": "prettier --write \"**/*.{js,md,json}\""
+    "format": "./scripts/format.sh"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
@@ -25,6 +25,6 @@
     }
   },
   "lint-staged": {
-    "*.{js,md,json}": "prettier --write"
+    "*": "./scripts/format.sh"
   }
 }
