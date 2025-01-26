@@ -16,9 +16,6 @@ defmodule MedtingpotCore.ConnCase do
       import Phoenix.ConnTest
       import Phoenix.LiveViewTest
       import MedtingpotCore.ConnCase
-
-      # Import path helpers
-      import Phoenix.Component, only: [sigil_p: 2]
     end
   end
 
