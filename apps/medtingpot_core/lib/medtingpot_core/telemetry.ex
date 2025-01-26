@@ -47,11 +47,24 @@ defmodule MedtingpotCore.Telemetry do
       summary("phoenix.channel_handled_in.duration",
         tags: [:event],
         unit: {:native, :millisecond}
-      )
+      ),
+
+      # VM Metrics
+      summary("vm.memory.total", unit: {:byte, :kilobyte}),
+      summary("vm.total_run_queue_lengths.total"),
+      summary("vm.total_run_queue_lengths.cpu"),
+      summary("vm.total_run_queue_lengths.io")
     ]
   end
 
-  defp periodic_measurements do
-    []
+  @doc """
+  Returns a list of periodic measurements to be executed by the telemetry poller.
+  """
+  def periodic_measurements do
+    [
+      # A module, function and arguments to be invoked periodically.
+      # This function must call :telemetry.execute/3 and a metric must be added above.
+      # {MedtingpotCore, :count_users, []}
+    ]
   end
 end
