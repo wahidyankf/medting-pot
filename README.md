@@ -10,6 +10,21 @@ and distribution. Just as a melting pot combines different elements into a harmo
 MedtingPot pulls content from diverse sources and transforms them into a unified stream that can be
 distributed across multiple channels.
 
+## Project Structure
+
+```
+apps/
+  ├── medtingpot_core/      # Core API and content processing
+  └── [more apps to come]   # Future applications
+```
+
+### Core Application (medtingpot_core)
+
+- REST API for content management
+- SQLite database for data persistence
+- Event-driven architecture using Phoenix
+- JSON-based communication
+
 ## Technology Stack
 
 ### Core Technologies
@@ -29,7 +44,7 @@ distributed across multiple channels.
   - High-performance HTTP server
   - API endpoints for content distribution
 
-- **PostgreSQL**: Reliable and robust database system for:
+- **SQLite**: Lightweight and reliable database system for:
   - Content storage and management
   - Event tracking and history
   - Relationship mapping between different content sources
@@ -38,14 +53,14 @@ distributed across multiple channels.
 The choice of Elixir with Phoenix Framework ensures robust performance in our event-heavy
 architecture, making it ideal for processing and distributing content from multiple sources
 simultaneously. Phoenix's real-time capabilities perfectly complement the event-driven nature of the
-application, while PostgreSQL provides a solid foundation for data persistence and complex querying
+application, while SQLite provides a solid foundation for data persistence and complex querying
 capabilities.
 
 ## Repository Management
 
 This repository is managed using:
 
-- **JavaScript/TypeScript**: Tools and scripts for repository maintenance:
+- **npm/JavaScript**: Tools and scripts for repository maintenance:
   - Automated release management
   - Commit message standardization
   - Repository workflow automation
@@ -58,7 +73,6 @@ This repository is managed using:
 
 - Elixir
 - Phoenix Framework
-- PostgreSQL
 - Node.js & npm (for repository management)
 
 ### Getting Started
@@ -66,23 +80,29 @@ This repository is managed using:
 1. Install dependencies:
 
    ```bash
-   # Install Elixir dependencies
-   mix deps.get
-
    # Install repository management tools
    npm install
+
+   # Install Elixir dependencies (in each app directory)
+   cd apps/medtingpot_core
+   mix deps.get
    ```
 
 2. Set up the database:
 
    ```bash
+   cd apps/medtingpot_core
    mix ecto.setup
    ```
 
 3. Start the Phoenix server:
+
    ```bash
+   cd apps/medtingpot_core
    mix phx.server
    ```
+
+The API will be available at `http://localhost:4000/api`
 
 ### Repository Management
 

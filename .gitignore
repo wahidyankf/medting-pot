@@ -71,6 +71,13 @@ pids
 /test/tmp/
 /test/version_tmp/
 
+# SQLite database files
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+
 # Phoenix specific
 /assets/node_modules/
 /priv/static/
