@@ -30,7 +30,7 @@
     "*.{js,md,json,sh}": "./scripts/format.sh"
   },
   "volta": {
-    "node": "22.13.1",
-    "npm": "11.0.0"
+    "node": "20.11.0",
+    "npm": "10.2.4"
   }
 }
